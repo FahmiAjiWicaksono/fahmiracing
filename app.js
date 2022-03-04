@@ -506,7 +506,7 @@ initDb(config.databaseConnectionString, async (err, db) => {
     });
 
     // Create indexes on startup
-    if(process.env.NODE_ENV !== 'test'){
+    if(process.env.MONGODB_URI !== 'test'){
         try{
             await runIndexing(app);
         }catch(ex){
@@ -515,7 +515,7 @@ initDb(config.databaseConnectionString, async (err, db) => {
     };
 
     // Start cron job to index
-    if(process.env.NODE_ENV !== 'test'){
+    if(process.env.MONGODB_URI !== 'test'){
         cron.schedule('*/30 * * * *', async () => {
             try{
                 await runIndexing(app);
@@ -526,7 +526,7 @@ initDb(config.databaseConnectionString, async (err, db) => {
     };
 
     // Set trackStock for testing
-    if(process.env.NODE_ENV === 'test'){
+    if(process.env.MONGODB_URI === 'test'){
         config.trackStock = true;
     };
 
@@ -537,7 +537,7 @@ initDb(config.databaseConnectionString, async (err, db) => {
     try{
         await app.listen(app.get('port'));
         app.emit('appStarted');
-        if(process.env.NODE_ENV !== 'test'){
+        if(process.env.MONGODB_URI !== 'test'){
             console.log(colors.green(`expressCart running on host: http://localhost:${app.get('port')}`));
         }
     }catch(ex){
