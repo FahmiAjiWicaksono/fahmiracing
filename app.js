@@ -359,7 +359,7 @@ if(!config.secretSession || config.secretSession === ''){
 
 app.enable('trust proxy');
 app.use(helmet());
-app.set('port', process.env.PORT || 1111);
+app.set('port', process.env.MONGODB_URI || 1111);
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(config.secretCookie));
