@@ -20,7 +20,7 @@
     "paymentGateway": [
         "paypal"
     ],
-    "databaseConnectionString": "mongodb+srv://fahmiii:espensara@cluster0.rkfkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "databaseConnectionString": "mongodb+srv://fahmiii:espensara@cluster0.rkfkv.mongodb.net/racingfahmi?retryWrites=true&w=majority",
     "theme": "Cloth",
     "trackStock": false,
     "orderHook": "",
